@@ -19,12 +19,14 @@ Speed ​​Control DC Motor use STM32, IC L298 (H brigde circult), DC motor.
 
 # The motor is controlled in 2 directions and controls the speed:
 * Direction/motor driver control. Can be FORWARD, BACKWARD, BRAKE, or RELEASE.
-Use: 
-void Motor_Start(void);
-void Motor_Stop(void);
-void Motor_SetSpeed(uint16_t speed);
-void Motor_Forward(void);
-void Motor_Backward(void);
+- Use:
+<ul>
+  <li>void Motor_Start(void)</li>
+  <li>void Motor_Stop(void);</li>
+  <li>void Motor_SetSpeed(uint16_t speed);</li>
+  <li>void Motor_Forward(void);</li>
+  <li>void Motor_Backward(void);</li>
+</ul>
 * SpeedPWM: Control the speed by changing the "speed" variable.
 # All codes implement the functionality using direct register manipulation, without relying on the HAL library, for an STM32F1 series MCU
 Click to there: [Source code]([https://github.com](https://github.com/VuTuanAnh-1368/Speed_Control_DcMotor_STM32/blob/main/Core/Src/main.c))
