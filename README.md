@@ -29,4 +29,4 @@ Speed ​​Control DC Motor use STM32, IC L298 (H brigde circult), DC motor.
   </ul>
 - SpeedPWM: Control the speed by changing the "speed" variable.
 # All codes implement the functionality using direct register manipulation, without relying on the HAL library, for an STM32F1 series MCU. <space><space>
-Click to there: [Source code](https://github.com/VuTuanAnh-1368/Speed_Control_DcMotor_STM32/blob/main/Core/Src/main.c)
+Click to there: [Source code](https://github.com/VuTuanAnh-1368/Speed_Control_DcMotor_STM32/blob/main/main.c)
