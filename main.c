@@ -18,6 +18,7 @@ int main(void) {
   pwm_Init();
 
   while (1) {
+    //   Forward speed 0->100
       Motor_Forward();
       Motor_Start();
       for (uint16_t speed = 0; speed <= 100; speed += 5) {
@@ -25,7 +26,8 @@ int main(void) {
           for (volatile int i = 0; i < 1000000; i++);
       }
       for (volatile int i = 0; i < 500000; i++);
-	  
+
+	//   Backward speed 100->0
       Motor_Backward();
       for (uint16_t speed = 100; speed > 0; speed -= 5) {
           Motor_SetSpeed(speed);
@@ -33,20 +35,22 @@ int main(void) {
       }
       for (volatile int i = 0; i < 500000; i++);
 
+    //   Backward speed 0->100
       Motor_Backward();
       for (uint16_t speed = 0; speed <= 100; speed += 5) {
     	  Motor_SetSpeed(speed);
     	  for (volatile int i = 0; i < 100000; i++);
       }
 
+    //   Stop
       Motor_Stop();
       for (volatile int i = 0; i < 1000000; i++);
 
+    //The motor rotates at a steady speed (==20)
       Motor_Forward();
       Motor_Start();
       Motor_SetSpeed(20);
       for (volatile int i = 0; i < 100000000; i++);
-
       Motor_Backward();
       Motor_SetSpeed(20);
       for (volatile int i = 0; i < 100000000; i++);
