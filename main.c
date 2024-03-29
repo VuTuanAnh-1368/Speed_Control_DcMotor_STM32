@@ -25,7 +25,7 @@ int main(void) {
           for (volatile int i = 0; i < 1000000; i++);
       }
       for (volatile int i = 0; i < 500000; i++);
-
+	  
       Motor_Backward();
       for (uint16_t speed = 100; speed > 0; speed -= 5) {
           Motor_SetSpeed(speed);
@@ -54,29 +54,29 @@ int main(void) {
 }
 
 void input1() {
-	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
-	GPIOA->CRL &= ~(GPIO_CRL_CNF3 | GPIO_CRL_MODE3);
-	GPIOA->CRL |= GPIO_CRL_MODE3_0;
+      RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+      GPIOA->CRL &= ~(GPIO_CRL_CNF3 | GPIO_CRL_MODE3);
+      GPIOA->CRL |= GPIO_CRL_MODE3_0;
 }
 
 void input2() {
-	RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
-	GPIOA->CRL &= ~(GPIO_CRL_CNF4 | GPIO_CRL_MODE4);
-	GPIOA->CRL |= GPIO_CRL_MODE4_0;
+     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN;
+     GPIOA->CRL &= ~(GPIO_CRL_CNF4 | GPIO_CRL_MODE4);
+     GPIOA->CRL |= GPIO_CRL_MODE4_0;
 }
 
 void pwm_Init() {
     RCC->APB2ENR |= RCC_APB2ENR_IOPAEN | RCC_APB2ENR_TIM1EN;;
     GPIOA->CRH &= ~(GPIO_CRH_CNF8 | GPIO_CRH_MODE8);
     GPIOA->CRH |= GPIO_CRH_CNF8_1 | GPIO_CRH_MODE8;
-	RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
-	TIM1->CR1 = 0;
-	TIM1->PSC = 6399;
-	TIM1->ARR = 99;
-	TIM1->CCMR1 = TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2;
-	TIM1->CCER = TIM_CCER_CC1E;
-	TIM1->BDTR = TIM_BDTR_MOE;
-	TIM1->CR1 |= TIM_CR1_CEN;
+    RCC->APB2ENR |= RCC_APB2ENR_TIM1EN;
+    TIM1->CR1 = 0;
+    TIM1->PSC = 6399;
+    TIM1->ARR = 99;
+    TIM1->CCMR1 = TIM_CCMR1_OC1M_1 | TIM_CCMR1_OC1M_2;
+    TIM1->CCER = TIM_CCER_CC1E;
+    TIM1->BDTR = TIM_BDTR_MOE;
+    TIM1->CR1 |= TIM_CR1_CEN;
 }
 
 void Motor_Start(void) {
